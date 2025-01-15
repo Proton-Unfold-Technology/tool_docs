@@ -114,12 +114,7 @@ Ctrl+C复制
 点击创建自定义工具,填入工具名称和将刚复制的json内容粘贴到schema中
 ![alt text](./png/image.png)
 
-点击保存
-
-
-![alt text](./png/image-8.png)
-
-点开该自定义工具
+点击保存，点开该自定义工具
 
 
 ![alt text](./png/image-9.png)
