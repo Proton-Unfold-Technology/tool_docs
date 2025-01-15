@@ -21,7 +21,7 @@ def test(A, B):
 ```
 
 访问chatgpt生成后端，如下
-![alt text](image-7.png)
+![alt text](./png/image-7.png)
 
 
 完整的demo如下:
@@ -29,6 +29,7 @@ def test(A, B):
 # demo.py
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from types import Union
 import uvicorn
 
 # 在实例化FastAPI时，通过servers参数指定OpenAPI文档的服务器地址(请根据实际情况填写地址)
@@ -36,7 +37,7 @@ import uvicorn
 app = FastAPI(servers=[{"url": "http://0.0.0.0:8000"}])
 
 @app.get("/test")
-async def test(A: Union[int, float], B: Union[int, float] = 1):
+async def test(A: Union[int, float], B: Union[int, float]):
     result = A + B
     return JSONResponse(content={"result": result})
 
@@ -58,41 +59,41 @@ python demo.py
 ```
 
 在运行完上述命令后会在命令行会出现如下提示，
-![alt text](image-12.png)
+![alt text](./png/image-12.png)
 
 按住Ctrl + 鼠标左键点击下图所示的地址(http://0.0.0.0:8000),由于设置不同，url地址也会不同
-![alt text](image-13.png)
+![alt text](./png/image-13.png)
 
 点开后会看到如下图所示内容
-![alt text](image-14.png)
+![alt text](./png/image-14.png)
 
 我们在搜索框的地址后面加入/docs,回车
-![alt text](image-15.png)
+![alt text](./png/image-15.png)
 就会出现如下所示
-![alt text](image-24.png)
+![alt text](./png/image-24.png)
 
 点击向下箭头
-![alt text](image-17.png)
+![alt text](./png/image-17.png)
 
 点击try it out
-![alt text](image-18.png)
+![alt text](./png/image-18.png)
 
 在输入框中输入参数，请根据您的业务代码所需求参数类型填写
-![alt text](image-19.png)
+![alt text](./png/image-19.png)
 
 点击execute,等待片刻，
 若出现如下所示，则调用失败
-![alt text](image-20.png)
+![alt text](./png/image-20.png)
 
 成功调用则会出现以下内容
-![alt text](image-21.png)
+![alt text](./png/image-21.png)
 
 当成功时点击fastapi下的openapi.json
 
-![alt text](image-22.png)
+![alt text](./png/image-22.png)
 
 点击后如下
-![alt text](image-23.png)
+![alt text](./png/image-23.png)
 
 勾选美观输出后
 Ctrl+A全选
@@ -100,19 +101,19 @@ Ctrl+C复制
 
 2、将刚复制的json导入到sciminder(https://sciminer.protonunfold.com/signin)上的自定义组件上，点击保存即可创建自定义组件函数
 点击上述链接，进入登陆页面
-![alt text](image-3.png)
+![alt text](./png/image-3.png)
 
 登陆后，进入主页面
-![alt text](image-4.png)
+![alt text](./png/image-4.png)
 
 点击自定义
-![alt text](image-5.png)
+![alt text](./png/image-5.png)
 
 点击创建自定义工具,填入工具名称和将刚复制的json内容粘贴到schema中
-![alt text](image.png)
+![alt text](./png/image.png)
 
 点击保存
-![alt text](image-8.png)
+![alt text](./png/image-8.png)
 
 点开该自定义工具
-![alt text](image-9.png)
+![alt text](./png/image-9.png)
