@@ -75,7 +75,7 @@ python demo.py
 在运行完上述命令后会在命令行会出现如下提示，
 ![alt text](./png/image-12.png)
 
-按住Ctrl + 鼠标左键点击下图所示的地址(http://0.0.0.0:8000),由于设置不同，url地址也会不同
+按住Ctrl + 鼠标左键点击下图所示的地址 (http://0.0.0.0:8000) ,由于设置不同，url地址也会不同
 ![alt text](./png/image-13.png)
 
 点开后会看到如下图所示内容
@@ -113,7 +113,7 @@ python demo.py
 Ctrl+A全选
 Ctrl+C复制
 
-2、将刚复制的json导入到sciminder(https://sciminer.protonunfold.com/signin)上的自定义组件上，点击保存即可创建自定义组件函数
+2、将刚复制的json导入到sciminder (https://sciminer.protonunfold.com/signin) 上的自定义组件上，点击保存即可创建自定义组件函数
 点击上述链接，进入登陆页面
 ![alt text](./png/image-3.png)
 
