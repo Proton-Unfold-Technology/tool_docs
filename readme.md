@@ -23,26 +23,38 @@ def test(A, B):
 访问chatgpt生成后端，如下
 
 
-![alt text](./png/image-7.png)
+![alt text](./png/image-1.png)
 
 
 完整的demo如下:
 ```python
 # demo.py
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
-from types import Union
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 import uvicorn
+
+# 定义输入数据模型
+class TestInput(BaseModel):
+    A: float
+    B: float
 
 # 在实例化FastAPI时，通过servers参数指定OpenAPI文档的服务器地址(请根据实际情况填写地址)
 # 若该项目已部署在服务器，需将其转化为外网可访问端口
 app = FastAPI(servers=[{"url": "http://0.0.0.0:8000"}])
 
-@app.get("/test")
-async def test(A: Union[int, float], B: Union[int, float]):
-    result = A + B
-    return JSONResponse(content={"result": result})
+def test(A: float, B: float) -> float:
+    return A + B
 
+# 定义 API 路由
+@app.post("/test")
+async def add_numbers(input_data: TestInput):
+    try:
+        result = test(input_data.A, input_data.B)
+        return {"result": result}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+# 示例运行方法（可选）
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
@@ -114,7 +126,7 @@ Ctrl+C复制
 点击创建自定义工具,填入工具名称和将刚复制的json内容粘贴到schema中
 ![alt text](./png/image.png)
 
-点击保存，点开该自定义工具
+点击保存,点开该自定义工具
 
 
 ![alt text](./png/image-9.png)
